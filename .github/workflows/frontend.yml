@@ -18,7 +18,6 @@ jobs:
       -
         name: Push code
         run: |
-            cd frontend
             echo "${{ secrets.DOCKERPW }}" | docker login -u "stephen10121" --password-stdin
             docker build -t stephen10121/studentconnect:1.${{ github.run_number }} .
             docker tag stephen10121/studentconnect:1.${{ github.run_number }} stephen10121/studentconnect:prod
