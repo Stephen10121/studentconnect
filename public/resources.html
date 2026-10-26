@@ -48,6 +48,17 @@
                 placeholder="Try math help or financial aid..."
             >
             <p id="searchMessage" aria-live="polite"></p>
+            
+    <label for="categoryFilter">Filter by category:</label>
+    <select id="categoryFilter">
+        <option value="all">All Categories</option>
+        <option value="academics">Academics</option>
+        <option value="financial">Financial Aid and Basic Needs</option>
+        <option value="health">Health and Wellness</option>
+        <option value="career">Career Services</option>
+        <option value="life">Student Life and Other Support</option>
+    </select>
+
         </section>
 
         <section>
@@ -114,35 +125,70 @@
     <footer>
         <p>StudentConnect — helping students find the support they need.</p>
     </footer>
+    
     <script>
-        const searchInput = document.getElementById("resourceSearch");
-        const searchMessage = document.getElementById("searchMessage");
-        const resourceItems = document.querySelectorAll("main section ul li");
+        
+const searchInput = document.getElementById("resourceSearch");
+const searchMessage = document.getElementById("searchMessage");
+const categoryFilter = document.getElementById("categoryFilter");
+const resourceItems = document.querySelectorAll("main section ul li");
 
-        searchInput.addEventListener("input", function () {
-            const searchText = searchInput.value.toLowerCase().trim();
-            let visibleCount = 0;
+function filterResources() {
+    const searchText = searchInput.value.toLowerCase().trim();
+    const selectedCategory = categoryFilter.value;
+    let visibleCount = 0;
 
-            resourceItems.forEach(function (item) {
-                const resourceText = item.textContent.toLowerCase();
-                const matches = resourceText.includes(searchText);
+    resourceItems.forEach(function (item) {
+        const section = item.closest("section");
+        const heading = section.querySelector("h2").textContent.toLowerCase();
+        const resourceText = item.textContent.toLowerCase();
 
-                item.style.display = matches ? "" : "none";
+        let matchesCategory = selectedCategory === "all";
 
-                if (matches) {
-                    visibleCount++;
-                }
-            });
+        if (selectedCategory === "academics" && heading.includes("academics")) {
+            matchesCategory = true;
+        } else if (selectedCategory === "financial" && heading.includes("financial aid")) {
+            matchesCategory = true;
+        } else if (selectedCategory === "health" && heading.includes("health and wellness")) {
+            matchesCategory = true;
+        } else if (selectedCategory === "career" && heading.includes("career services")) {
+            matchesCategory = true;
+        } else if (selectedCategory === "life" && heading.includes("student life")) {
+            matchesCategory = true;
+        }
 
-            if (searchText === "") {
-                searchMessage.textContent = "";
-            } else if (visibleCount === 0) {
-                searchMessage.textContent = "No resources found. Try another keyword.";
-            } else {
-                searchMessage.textContent =
-                    visibleCount + " resource(s) found.";
-            }
-        });
+        const matchesSearch = resourceText.includes(searchText);
+        const showItem = matchesCategory && matchesSearch;
+
+        item.style.display = showItem ? "" : "none";
+
+        if (showItem) {
+            visibleCount++;
+        }
+    });
+
+    document.querySelectorAll("main section ul").forEach(function (list) {
+        const section = list.closest("section");
+        const visibleItems = list.querySelectorAll(
+            "li:not([style*='display: none'])");
+
+        section.style.display = visibleItems.length === 0 ? "none" : "";
+      
+    });
+
+    if (searchText === "" && selectedCategory === "all") {
+        searchMessage.textContent = "";
+    } else if (visibleCount === 0) {
+        searchMessage.textContent = "No resources found. Try another search or category.";
+    } else {
+        searchMessage.textContent = visibleCount + " resource(s) found.";
+    }
+}
+
+searchInput.addEventListener("input", filterResources);
+categoryFilter.addEventListener("change", filterResources);
+           
+        
     </script>
 </body>
 </html>
