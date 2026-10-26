@@ -47,6 +47,7 @@
                 id="resourceSearch"
                 placeholder="Try math help or financial aid..."
             >
+            <p id="searchMessage" aria-live="polite"></p>
         </section>
 
         <section>
@@ -113,5 +114,35 @@
     <footer>
         <p>StudentConnect — helping students find the support they need.</p>
     </footer>
+    <script>
+        const searchInput = document.getElementById("resourceSearch");
+        const searchMessage = document.getElementById("searchMessage");
+        const resourceItems = document.querySelectorAll("main section ul li");
+
+        searchInput.addEventListener("input", function () {
+            const searchText = searchInput.value.toLowerCase().trim();
+            let visibleCount = 0;
+
+            resourceItems.forEach(function (item) {
+                const resourceText = item.textContent.toLowerCase();
+                const matches = resourceText.includes(searchText);
+
+                item.style.display = matches ? "" : "none";
+
+                if (matches) {
+                    visibleCount++;
+                }
+            });
+
+            if (searchText === "") {
+                searchMessage.textContent = "";
+            } else if (visibleCount === 0) {
+                searchMessage.textContent = "No resources found. Try another keyword.";
+            } else {
+                searchMessage.textContent =
+                    visibleCount + " resource(s) found.";
+            }
+        });
+    </script>
 </body>
 </html>
