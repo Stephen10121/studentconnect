@@ -129,3 +129,40 @@ footer {
     padding: 10px;
     color: #aab7cd;
 }
+
+
+/* Mobile-friendly layout */
+@media (max-width: 600px) {
+    section ul {
+        grid-template-columns: 1fr;
+    }
+
+    section.hero {
+        height: auto;
+        min-height: 60vh;
+    }
+
+    section.hero p {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    header {
+        padding: 10px;
+    }
+
+    header a img {
+        max-width: 120px;
+        height: auto;
+    }
+
+    header nav {
+        gap: 12px;
+    }
+
+    header nav a {
+        font-size: 0.9rem;
+    }
+}
+
+
