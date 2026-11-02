@@ -3,192 +3,467 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Resources | StudentConnect</title>
+    <title>Student Resources | Student Connect</title>
     <link rel="stylesheet" href="/public/style.css">
+
+    <style>
+        /* Student Resources page */
+
+        .resources-hero {
+            background: linear-gradient(110deg, #102343, #1b386e);
+            color: white;
+            padding: 65px 7%;
+            text-align: center;
+        }
+
+        .resources-hero .tiny {
+            color: #9dbbff;
+        }
+
+        .resources-hero h1 {
+            color: white;
+            margin: 15px 0;
+        }
+
+        .resources-hero h1 span {
+            color: #9dbbff;
+        }
+
+        .resources-hero p {
+            max-width: 650px;
+            margin: 15px auto;
+            line-height: 1.7;
+        }
+
+        .resources-hero a {
+            color: white;
+            font-weight: bold;
+        }
+
+        .resource-search {
+            max-width: 850px;
+            margin: 45px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 5px 25px rgba(16, 35, 67, 0.08);
+        }
+
+        .resource-search h2 {
+            color: #102343;
+            margin-top: 0;
+        }
+
+        .resource-search label {
+            display: block;
+            margin: 18px 0 8px;
+            font-weight: bold;
+            color: #102343;
+        }
+
+        .resource-search input,
+        .resource-search select {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #ccd5e3;
+            border-radius: 8px;
+            font-size: 16px;
+            background: white;
+        }
+
+        #searchMessage {
+            color: #1b386e;
+            font-weight: bold;
+            min-height: 20px;
+        }
+
+        .resource-categories {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 7% 65px;
+        }
+
+        .resource-intro {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .resource-intro h2 {
+            color: #102343;
+        }
+
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 25px;
+        }
+
+        .resource-category {
+            background: white;
+            padding: 28px;
+            border-radius: 16px;
+            box-shadow: 0 5px 22px rgba(16, 35, 67, 0.07);
+            border: 1px solid #e5eaf2;
+        }
+
+        .resource-category h3 {
+            color: #102343;
+            font-size: 22px;
+            margin-top: 0;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #dce7fb;
+        }
+
+        .resource-category ul {
+            padding-left: 20px;
+            margin-bottom: 0;
+        }
+
+        .resource-category li {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .resource-category a {
+            color: #1b386e;
+            font-weight: bold;
+        }
+
+        .resource-category a:hover {
+            color: #527fce;
+        }
+
+        .resource-category li:last-child {
+            margin-bottom: 0;
+        }
+
+        .resource-cta {
+            text-align: center;
+            padding: 55px 7%;
+            background: #edf3ff;
+        }
+
+        .resource-cta h2 {
+            color: #102343;
+        }
+
+        .resource-cta p {
+            max-width: 600px;
+            margin: 15px auto 25px;
+        }
+
+        @media (max-width: 768px) {
+            .resource-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .resource-search {
+                margin: 25px 5%;
+                padding: 22px;
+            }
+
+            .resource-categories {
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+
+            .resources-hero {
+                padding: 45px 6%;
+            }
+        }
+    </style>
 </head>
 
 <body>
+
+    <!-- HEADER -->
     <header>
-        <a href="/">
-            <img src="/public/images/Untitled.png" alt="Student Connect Logo" />
+        <a href="/" aria-label="Student Connect Home">
+            <img src="/public/images/Untitled.png"
+                 alt="Student Connect Logo">
         </a>
+
         <nav>
             <a href="/">Home</a>
             <a href="/public/resources.html">Student Resources</a>
+            <a href="/public/get-involved.html">Get Involved</a>
         </nav>
     </header>
 
     <main>
-        <section class="hero">
-            <p class="tiny">Your guide to student resources at Clark College</p>
 
-            <h1>Find the Support <span class="colorful">You</span> Need</h1>
-            
+        <!-- HERO SECTION -->
+        <section class="resources-hero">
+            <p class="tiny">YOUR GUIDE TO STUDENT SUPPORT</p>
+
+            <h1>
+                Find the Support <span>You</span> Need
+            </h1>
+
             <p>
                 College involves more than classes. Explore resources
                 for academics, finances, health, careers, and campus life.
+                Find the support and information you need to move forward.
             </p>
-    
-            <p style="margin-top: 30px;">
+
+            <p>
+                Need help right away?
                 <a href="https://www.clark.edu/campus-life/student-support/">
-                    Visit Clark College's official Student Support Directory
+                    Visit Clark College's Official Student Support Directory
                 </a>
             </p>
-            </section>
+        </section>
 
-        <!-- Resource Search -->
+        <!-- RESOURCE SEARCH -->
         <section class="resource-search">
             <h2>Search Student Resources</h2>
-            <p>Search for tutoring, financial aid, career help, and more.</p>
 
-            <label for="resourceSearch">What are you looking for?</label>
+            <p>
+                Looking for something specific? Search by keyword
+                or choose a category below.
+            </p>
+
+            <label for="resourceSearch">
+                What are you looking for?
+            </label>
+
             <input
                 type="search"
                 id="resourceSearch"
                 placeholder="Try math help or financial aid..."
             >
+
             <p id="searchMessage" aria-live="polite"></p>
-            
-    <label for="categoryFilter">Filter by category:</label>
-    <select id="categoryFilter">
-        <option value="all">All Categories</option>
-        <option value="academics">Academics</option>
-        <option value="financial">Financial Aid and Basic Needs</option>
-        <option value="health">Health and Wellness</option>
-        <option value="career">Career Services</option>
-        <option value="life">Student Life and Other Support</option>
-    </select>
 
+            <label for="categoryFilter">
+                Filter by category:
+            </label>
+
+            <select id="categoryFilter">
+                <option value="all">All Categories</option>
+                <option value="academics">Academics</option>
+                <option value="financial">Financial Aid and Basic Needs</option>
+                <option value="health">Health and Wellness</option>
+                <option value="career">Career Services</option>
+                <option value="life">Student Life and Other Support</option>
+            </select>
         </section>
 
-        <section>
-            <h2>Academics</h2>
-            <ul>
-                <li><a href="https://www.clark.edu/cc/advising">Academic Advising</a> — degree planning and class selection.</li>
-                <li><a href="https://www.clark.edu/campus-life/student-support/tutoring/">Tutoring Services</a> — academic help for many courses.</li>
-                <li><a href="https://www.clark.edu/campus-life/student-support/tutoring/">eTutoring</a> — online tutoring information.</li>
-                <li><a href="https://www.clark.edu/campus-life/student-support/">Student Success Coaches</a> — academic and personal success support.</li>
-                <li><a href="https://library.clark.edu/">Library</a> — research help, books, and study spaces.</li>
-                <li><a href="https://www.clark.edu/campus-life/student-support/">TechHub</a> — help with student technology.</li>
-                <li><a href="https://www.clark.edu/campus-life/student-support/">Disability Access Center</a> — accessibility and accommodations.</li>
-            </ul>
+        <!-- RESOURCE CATEGORIES -->
+        <section class="resource-categories">
+
+            <div class="resource-intro">
+                <p class="section-label">EXPLORE YOUR SUPPORT OPTIONS</p>
+                <h2>Resources to Help You Succeed</h2>
+                <p>
+                    Explore the different types of support available
+                    to help you throughout your college journey.
+                </p>
+            </div>
+
+            <div class="resource-grid">
+
+                <!-- ACADEMICS -->
+                <article class="resource-category" data-category="academics">
+                    <h3>Academic Support</h3>
+
+                    <ul>
+                        <li><a href="https://www.clark.edu/cc/advising">Academic Advising</a> — degree planning and class selection.</li>
+
+                        <li><a href="https://www.clark.edu/campus-life/student-support/tutoring/">Tutoring Services</a> — academic help for many courses.</li>
+
+                        <li><a href="https://www.clark.edu/campus-life/student-support/tutoring/">eTutoring</a> — online tutoring information.</li>
+
+                        <li><a href="https://www.clark.edu/campus-life/student-support/">Student Success Coaches</a> — academic and personal success support.</li>
+
+                        <li><a href="https://library.clark.edu/">Library</a> — research help, books, and study spaces.</li>
+
+                        <li><a href="https://www.clark.edu/campus-life/student-support/">TechHub</a> — help with student technology.</li>
+
+                        <li><a href="https://www.clark.edu/campus-life/student-support/">Disability Access Center</a> — accessibility and accommodations.</li>
+                    </ul>
+                </article>
+
+                <!-- FINANCIAL -->
+                <article class="resource-category" data-category="financial">
+                    <h3>Financial Aid and Basic Needs</h3>
+
+                    <ul>
+                        <li><a href="https://www.clark.edu/enroll/paying-for-college/financial-aid/">Financial Aid</a> — grants, scholarships, loans, and work-study.</li>
+
+                        <li><a href="https://www.clark.edu/campus-life/student-support/">Financial Wellness</a> — budgeting and managing expenses.</li>
+
+                        <li><a href="https://www.clark.edu/campus-life/student-support/basic-needs/resource-inventory/">Emergency Grants and Basic Needs</a> — explore support for unexpected expenses.</li>
+
+                        <li><a href="https://www.clark.edu/campus-life/student-support/">Penguin Pantry</a> — food and personal necessities.</li>
+
+                        <li><a href="https://www.clark.edu/campus-life/student-support/">Workforce Education Services</a> — possible assistance with education costs.</li>
+
+                        <li><a href="https://www.clark.edu/campus-life/student-support/basic-needs/resource-inventory/">Childcare</a> — explore childcare resources.</li>
+
+                        <li><a href="https://www.clark.edu/campus-life/student-support/basic-needs/resource-inventory/">Transportation</a> — explore transportation assistance.</li>
+                    </ul>
+                </article>
+
+                <!-- HEALTH -->
+                <article class="resource-category" data-category="health">
+                    <h3>Health and Wellness</h3>
+
+                    <ul>
+                        <li><a href="https://www.clark.edu/campus-life/student-support/">Counseling and Health Center</a> — health and wellness support.</li>
+
+                        <li><a href="https://www.clark.edu/campus-life/student-support/basic-needs/resource-inventory/">Basic Needs Support</a> — resources for essential needs.</li>
+
+                        <li><a href="https://www.clark.edu/campus-life/student-support/student-success/">Student Success Workshops</a> — study skills, test anxiety, and more.</li>
+
+                        <li><a href="https://www.clark.edu/campus-life/student-support/">Veterans Resource Center</a> — support for veterans and their families.</li>
+
+                        <li><a href="https://www.clark.edu/campus-life/student-support/">Diversity Center</a> — campus community and inclusion.</li>
+                    </ul>
+                </article>
+
+                <!-- CAREER -->
+                <article class="resource-category" data-category="career">
+                    <h3>Career Services</h3>
+
+                    <ul>
+                        <li><a href="https://www.clark.edu/campus-life/student-support/">Career Advising</a> — explore career and education options.</li>
+
+                        <li><a href="https://www.clark.edu/campus-life/student-support/">Resume and Job Search</a> — prepare for job applications and interviews.</li>
+
+                        <li><a href="https://www.clark.edu/campus-life/student-support/">Penguin Jobs</a> — find job opportunities.</li>
+
+                        <li><a href="https://www.clark.edu/campus-life/student-support/">Internships and Work-Based Learning</a> — explore experience-building opportunities.</li>
+
+                        <li><a href="https://www.clark.edu/campus-life/student-support/">Student Employment and Work Study</a> — explore student job options.</li>
+
+                        <li><a href="https://www.clark.edu/campus-life/student-support/">Career Assessments</a> — consider interests and career paths.</li>
+                    </ul>
+                </article>
+
+                <!-- STUDENT LIFE -->
+                <article class="resource-category" data-category="life">
+                    <h3>Student Life and Other Support</h3>
+
+                    <ul>
+                        <li><a href="https://www.clark.edu/campus-life/student-support/">Student Life</a> — clubs, events, and leadership opportunities.</li>
+
+                        <li><a href="https://www.clark.edu/campus-life/student-support/">International Programs</a> — support for international students.</li>
+
+                        <li><a href="https://www.clark.edu/campus-life/student-support/">MESA</a> — STEM support and enrichment opportunities.</li>
+
+                        <li><a href="https://www.clark.edu/current/">Enrollment and Student Services</a> — start here for student service information.</li>
+
+                        <li><a href="https://www.clark.edu/current/includes/student-links.php">Important Dates and Deadlines</a> — find key student links and dates.</li>
+                    </ul>
+                </article>
+
+            </div>
         </section>
 
-        <section>
-            <h2>Financial Aid and Basic Needs</h2>
-            <ul>
-                <li><a href="https://www.clark.edu/enroll/paying-for-college/financial-aid/">Financial Aid</a> — grants, scholarships, loans, and work-study.</li>
-                <li><a href="https://www.clark.edu/campus-life/student-support/">Financial Wellness</a> — budgeting and managing expenses.</li>
-                <li><a href="https://www.clark.edu/campus-life/student-support/basic-needs/resource-inventory/">Emergency Grants and Basic Needs</a> — explore support for unexpected expenses.</li>
-                <li><a href="https://www.clark.edu/campus-life/student-support/">Penguin Pantry</a> — food and personal necessities.</li>
-                <li><a href="https://www.clark.edu/campus-life/student-support/">Workforce Education Services</a> — possible assistance with education costs.</li>
-                <li><a href="https://www.clark.edu/campus-life/student-support/basic-needs/resource-inventory/">Childcare</a> — explore childcare resources.</li>
-                <li><a href="https://www.clark.edu/campus-life/student-support/basic-needs/resource-inventory/">Transportation</a> — explore transportation assistance.</li>
-            </ul>
+        <!-- CALL TO ACTION -->
+        <section class="resource-cta">
+            <p class="section-label">YOU ARE PART OF THE COMMUNITY</p>
+
+            <h2>College is more than academics.</h2>
+
+            <p>
+                Meet other students, discover campus activities,
+                and find ways to get involved at Clark College.
+            </p>
+
+            <a href="/public/get-involved.html" class="primary-button">
+                Explore Ways to Get Involved
+            </a>
         </section>
 
-        <section>
-            <h2>Health and Wellness</h2>
-            <ul>
-                <li><a href="https://www.clark.edu/campus-life/student-support/">Counseling and Health Center</a> — health and wellness support.</li>
-                <li><a href="https://www.clark.edu/campus-life/student-support/basic-needs/resource-inventory/">Basic Needs Support</a> — resources for essential needs.</li>
-                <li><a href="https://www.clark.edu/campus-life/student-support/student-success/">Student Success Workshops</a> — study skills, test anxiety, and more.</li>
-                <li><a href="https://www.clark.edu/campus-life/student-support/">Veterans Resource Center</a> — support for veterans and their families.</li>
-                <li><a href="https://www.clark.edu/campus-life/student-support/">Diversity Center</a> — campus community and inclusion.</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>Career Services</h2>
-            <ul>
-                <li><a href="https://www.clark.edu/campus-life/student-support/">Career Advising</a> — explore career and education options.</li>
-                <li><a href="https://www.clark.edu/campus-life/student-support/">Resume and Job Search</a> — prepare for job applications and interviews.</li>
-                <li><a href="https://www.clark.edu/campus-life/student-support/">Penguin Jobs</a> — find job opportunities.</li>
-                <li><a href="https://www.clark.edu/campus-life/student-support/">Internships and Work-Based Learning</a> — explore experience-building opportunities.</li>
-                <li><a href="https://www.clark.edu/campus-life/student-support/">Student Employment and Work Study</a> — explore student job options.</li>
-                <li><a href="https://www.clark.edu/campus-life/student-support/">Career Assessments</a> — consider interests and career paths.</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>Student Life and Other Support</h2>
-            <ul>
-                <li><a href="https://www.clark.edu/campus-life/student-support/">Student Life</a> — clubs, events, and leadership opportunities.</li>
-                <li><a href="https://www.clark.edu/campus-life/student-support/">International Programs</a> — support for international students.</li>
-                <li><a href="https://www.clark.edu/campus-life/student-support/">MESA</a> — STEM support and enrichment opportunities.</li>
-                <li><a href="https://www.clark.edu/current/">Enrollment and Student Services</a> — start here for student service information.</li>
-                <li><a href="https://www.clark.edu/current/includes/student-links.php">Important Dates and Deadlines</a> — find key student links and dates.</li>
-            </ul>
-        </section>
     </main>
 
+    <!-- FOOTER -->
     <footer>
-        <p>StudentConnect — helping students find the support they need.</p>
+        <div class="footer-content">
+            <div>
+                <h3>Student Connect</h3>
+                <p>
+                    Helping students find the support,
+                    resources, and connections they need
+                    to succeed.
+                </p>
+            </div>
+
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="/">Home</a>
+                <a href="/public/resources.html">Student Resources</a>
+                <a href="/public/get-involved.html">Get Involved</a>
+                <a href="https://www.clark.edu/">Clark College</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>Student Connect | Clark College</p>
+        </div>
     </footer>
-    
+
+    <!-- SEARCH AND FILTER SCRIPT -->
     <script>
-        
-const searchInput = document.getElementById("resourceSearch");
-const searchMessage = document.getElementById("searchMessage");
-const categoryFilter = document.getElementById("categoryFilter");
-const resourceItems = document.querySelectorAll("main section ul li");
+        const searchInput = document.getElementById("resourceSearch");
+        const searchMessage = document.getElementById("searchMessage");
+        const categoryFilter = document.getElementById("categoryFilter");
 
-function filterResources() {
-    const searchText = searchInput.value.toLowerCase().trim();
-    const selectedCategory = categoryFilter.value;
-    let visibleCount = 0;
+        const resourceCards = document.querySelectorAll(".resource-category");
 
-    resourceItems.forEach(function (item) {
-        const section = item.closest("section");
-        const heading = section.querySelector("h2").textContent.toLowerCase();
-        const resourceText = item.textContent.toLowerCase();
+        function filterResources() {
+            const searchText = searchInput.value.toLowerCase().trim();
+            const selectedCategory = categoryFilter.value;
 
-        let matchesCategory = selectedCategory === "all";
+            let visibleCount = 0;
 
-        if (selectedCategory === "academics" && heading.includes("academics")) {
-            matchesCategory = true;
-        } else if (selectedCategory === "financial" && heading.includes("financial aid")) {
-            matchesCategory = true;
-        } else if (selectedCategory === "health" && heading.includes("health and wellness")) {
-            matchesCategory = true;
-        } else if (selectedCategory === "career" && heading.includes("career services")) {
-            matchesCategory = true;
-        } else if (selectedCategory === "life" && heading.includes("student life")) {
-            matchesCategory = true;
+            resourceCards.forEach(function (card) {
+                const category = card.dataset.category;
+                const resourceItems = card.querySelectorAll("li");
+
+                let matchesCategory =
+                    selectedCategory === "all" ||
+                    selectedCategory === category;
+
+                let visibleItems = 0;
+
+                resourceItems.forEach(function (item) {
+                    const resourceText = item.textContent.toLowerCase();
+
+                    const matchesSearch =
+                        resourceText.includes(searchText);
+
+                    const showItem =
+                        matchesCategory && matchesSearch;
+
+                    item.style.display = showItem ? "" : "none";
+
+                    if (showItem) {
+                        visibleItems++;
+                        visibleCount++;
+                    }
+                });
+
+                card.style.display =
+                    visibleItems > 0 ? "" : "none";
+            });
+
+            if (searchText === "" && selectedCategory === "all") {
+                searchMessage.textContent = "";
+            } else if (visibleCount === 0) {
+                searchMessage.textContent =
+                    "No resources found. Try another search or category.";
+            } else {
+                searchMessage.textContent =
+                    visibleCount + " resource(s) found.";
+            }
         }
 
-        const matchesSearch = resourceText.includes(searchText);
-        const showItem = matchesCategory && matchesSearch;
-
-        item.style.display = showItem ? "" : "none";
-
-        if (showItem) {
-            visibleCount++;
-        }
-    });
-
-    document.querySelectorAll("main section ul").forEach(function (list) {
-        const section = list.closest("section");
-        const visibleItems = list.querySelectorAll(
-            "li:not([style*='display: none'])");
-
-        section.style.display = visibleItems.length === 0 ? "none" : "";
-      
-    });
-
-    if (searchText === "" && selectedCategory === "all") {
-        searchMessage.textContent = "";
-    } else if (visibleCount === 0) {
-        searchMessage.textContent = "No resources found. Try another search or category.";
-    } else {
-        searchMessage.textContent = visibleCount + " resource(s) found.";
-    }
-}
-
-searchInput.addEventListener("input", filterResources);
-categoryFilter.addEventListener("change", filterResources);
-           
-        
+        searchInput.addEventListener("input", filterResources);
+        categoryFilter.addEventListener("change", filterResources);
     </script>
+
 </body>
 </html>
