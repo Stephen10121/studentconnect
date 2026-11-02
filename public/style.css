@@ -1,25 +1,61 @@
-*, *::before, *::after {
+
+/* =========================================
+   STUDENT CONNECT - MAIN STYLESHEET
+   Original navy and blue color scheme
+========================================= */
+
+:root {
+    --navy: #102343;
+    --royal-blue: #1b386e;
+    --light-blue: #9dbbff;
+    --background: #f5f7fb;
+    --white: #ffffff;
+    --text: #243047;
+    --muted: #64748b;
+    --shadow: 0 6px 24px rgba(16, 35, 67, 0.08);
+}
+
+*,
+*::before,
+*::after {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
 }
 
-body {
-    background-color: #f5f7fb;
-    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Helvetica Neue, Arial, sans-serif !important;
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
 }
+
+body {
+    background-color: var(--background);
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI,
+        Roboto, Oxygen, Ubuntu, Cantarell, Helvetica Neue,
+        Arial, sans-serif;
+    color: var(--text);
+    line-height: 1.6;
+}
+
+a {
+    transition: all 0.25s ease;
+}
+
+/* =========================================
+   HEADER AND NAVIGATION
+========================================= */
 
 header {
     position: sticky;
     top: 0;
-    left: 0;
+    z-index: 100;
     width: 100%;
-    height: 80px;
-    padding: 10px;
-    background: rgba(255, 255, 255, 0.63);
+    min-height: 80px;
+    padding: 10px 5%;
+    background: rgba(255, 255, 255, 0.92);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -27,23 +63,32 @@ header {
 
 header a img {
     height: 60px;
+    width: auto;
+    object-fit: contain;
 }
 
 header nav {
     display: flex;
+    align-items: center;
     gap: 10px;
 }
 
 header nav a {
-    color: #000000;
+    color: var(--navy);
     font-weight: bold;
     text-decoration: none;
-    padding: 10px;
-    border-radius: 6px;
+    padding: 10px 16px;
+    border-radius: 8px;
 }
+
 header nav a:hover {
     background-color: rgba(27, 56, 110, 0.1);
+    color: var(--royal-blue);
 }
+
+/* =========================================
+   HERO SECTION
+========================================= */
 
 main {
     width: 100%;
@@ -51,77 +96,412 @@ main {
 
 section.hero {
     width: 100%;
-    height: 60vh;
-    background: #102343;
-    background: linear-gradient(90deg,rgba(16, 35, 67, 1) 0%, rgba(27, 56, 110, 1) 100%);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 20px;
-    gap: 20px;
+    min-height: 570px;
+    background: linear-gradient(
+        110deg,
+        var(--navy) 0%,
+        var(--royal-blue) 100%
+    );
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 40px;
+    padding: 65px 7%;
+    overflow: hidden;
+}
+
+.hero-content {
+    max-width: 620px;
 }
 
 section.hero .tiny {
-    color: #9dbbff;
+    color: var(--light-blue);
     font-weight: bold;
     text-transform: uppercase;
     font-size: 0.85rem;
-    display: flex;
-    align-items: center;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
 }
 
 section.hero .tiny::before {
     content: "";
+    display: inline-block;
     width: 25px;
     height: 2px;
-    background-color: #9dbbff;
-    margin-right: 5px;
+    background-color: var(--light-blue);
+    margin-right: 10px;
+    vertical-align: middle;
 }
 
 section.hero h1 {
-    color: #ffffff;
+    color: var(--white);
     font-weight: bold;
     font-size: clamp(42px, 5.2vw, 68px);
     line-height: 1.1;
-    max-width: 900px;
+    margin-bottom: 24px;
 }
 
 section.hero h1 .colorful {
-    color: #9dbbff;
+    color: var(--light-blue);
 }
 
 section.hero p {
-    color: #b9c5da;
-    font-size: 1.2rem;
+    color: #d3dced;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    max-width: 560px;
 }
 
-section.hero p a {
-    background-color: #ffffff;
-    border-radius: 10px;
-    padding: 10px;
-    color: black;
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 30px;
+}
+
+.primary-button,
+.secondary-button {
+    display: inline-block;
+    padding: 13px 22px;
+    border-radius: 9px;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+}
+
+.primary-button {
+    background-color: var(--light-blue);
+    color: var(--navy);
+}
+
+.primary-button:hover {
+    background-color: var(--white);
+    transform: translateY(-3px);
+}
+
+.secondary-button {
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    color: var(--white);
+}
+
+.secondary-button:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.hero-image {
+    width: 100%;
+    height: 380px;
+    overflow: hidden;
+    border-radius: 22px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* =========================================
+   GENERAL SECTION HEADINGS
+========================================= */
+
+.section-label {
+    color: var(--royal-blue);
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.welcome-section,
+.resources-section,
+.involved-section {
+    padding: 75px 7%;
+}
+
+.welcome-section {
+    text-align: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.welcome-section h2,
+.section-heading h2,
+.student-life-content h2,
+.involved-section h2 {
+    color: var(--navy);
+    font-size: clamp(28px, 3.5vw, 40px);
+    line-height: 1.2;
+    margin-bottom: 18px;
+}
+
+.welcome-section > p:last-child {
+    color: var(--muted);
+    font-size: 1.08rem;
+    max-width: 760px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+/* =========================================
+   STUDENT RESOURCE CARDS
+========================================= */
+
+.resources-section {
+    background-color: #eaf0fa;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 38px;
+}
+
+.section-heading > p:last-child {
+    color: var(--muted);
+}
+
+.resource-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.feature-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: var(--white);
+    padding: 28px;
+    border-radius: 14px;
+    text-decoration: none;
+    color: var(--text);
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(16, 35, 67, 0.05);
+}
+
+.feature-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(16, 35, 67, 0.14);
+}
+
+.card-icon {
+    width: 58px;
+    height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #edf2ff;
+    border-radius: 14px;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.feature-card h3 {
+    color: var(--navy);
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.feature-card p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 18px;
+}
+
+.feature-card span {
+    color: var(--royal-blue);
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-top: auto;
+}
+
+.all-resources {
+    text-align: center;
+    margin-top: 38px;
+}
+
+.all-resources a {
+    display: inline-block;
+    background-color: var(--navy);
+    color: var(--white);
+    text-decoration: none;
+    padding: 14px 24px;
+    border-radius: 9px;
+    font-weight: bold;
+}
+
+.all-resources a:hover {
+    background-color: var(--royal-blue);
+    transform: translateY(-2px);
+}
+
+/* =========================================
+   STUDENT LIFE SECTION
+========================================= */
+
+.student-life-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 55px;
+    padding: 85px 7%;
+    background-color: var(--white);
+}
+
+.student-life-image {
+    height: 370px;
+    overflow: hidden;
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+}
+
+.student-life-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.student-life-content p:not(.section-label) {
+    color: var(--muted);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+.student-life-content > a {
+    color: var(--royal-blue);
+    font-weight: bold;
     text-decoration: none;
 }
 
-section:not(.hero) {
-    margin-top: 10px;
-    padding: 10px;
+.student-life-content > a:hover {
+    text-decoration: underline;
 }
+
+/* =========================================
+   GET INVOLVED SECTION
+========================================= */
+
+.involved-section {
+    text-align: center;
+    background: linear-gradient(
+        110deg,
+        var(--navy),
+        var(--royal-blue)
+    );
+    color: var(--white);
+}
+
+.involved-section .section-label {
+    color: var(--light-blue);
+}
+
+.involved-section h2 {
+    color: var(--white);
+}
+
+.involved-section > p:not(.section-label) {
+    max-width: 650px;
+    margin: 0 auto 28px;
+    color: #d3dced;
+    font-size: 1.05rem;
+}
+
+/* =========================================
+   CLARK COLLEGE BRANDING
+========================================= */
+
+.college-section {
+    padding: 45px 20px;
+    text-align: center;
+    background-color: var(--white);
+}
+
+.college-section p {
+    color: var(--muted);
+    margin-bottom: 20px;
+}
+
+.college-section img {
+    width: min(350px, 85%);
+    height: auto;
+    object-fit: contain;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+    background-color: #101e37;
+    width: 100%;
+    padding: 45px 7% 20px;
+    color: #aab7cd;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 50px;
+    padding-bottom: 35px;
+}
+
+.footer-content h3,
+.footer-content h4 {
+    color: var(--white);
+    margin-bottom: 15px;
+}
+
+.footer-content p {
+    max-width: 430px;
+    line-height: 1.8;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-links a {
+    color: #aab7cd;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    color: var(--light-blue);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    padding-top: 20px;
+    text-align: center;
+    font-size: 0.85rem;
+}
+
+/* =========================================
+   EXISTING STUDENT RESOURCE PAGE STYLES
+========================================= */
 
 section ul {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(min(100%, 320px), 1fr)
+    );
     column-gap: 10px;
     row-gap: 10px;
     margin-top: 10px;
-
 }
 
 section ul li {
-    background-color: #ffffff;
+    background-color: var(--white);
     list-style-type: none;
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    box-shadow: var(--shadow);
     border-radius: 10px;
     padding: 10px;
 }
@@ -130,69 +510,19 @@ section ul li a {
     color: #4261aa;
 }
 
-footer {
-    background-color: #101e37;
-    width: 100%;
-    padding: 10px;
-    color: #aab7cd;
-}
-/* Mobile-friendly layout */
-@media (max-width: 600px) {
-    header {
-        height: auto;
-        min-height: 70px;
-        padding: 10px;
-        gap: 10px;
-        flex-wrap: wrap;
-    }
-
-    header a img {
-        max-width: 120px;
-        height: auto;
-    }
-
-    header nav {
-        gap: 4px;
-        flex-wrap: wrap;
-    }
-
-    header nav a {
-        font-size: 0.85rem;
-        padding: 6px;
-    }
-
-    section.hero {
-        height: auto;
-        min-height: 60vh;
-        padding: 24px 16px;
-        gap: 18px;
-    }
-
-    section.hero h1 {
-        font-size: clamp(2.25rem, 8vw, 3rem);
-        overflow-wrap: break-word;
-    }
-
-    section.hero p {
-        font-size: 1rem;
-        line-height: 1.6;
-    }
-
-    section ul {
-        grid-template-columns: 1fr;
-    }
 /* Resource search area */
+
 .resource-search {
-    background-color: #ffffff;
-    margin: 24px 20px !important;
-    padding: 24px !important;
+    background-color: var(--white);
+    margin: 24px 20px;
+    padding: 24px;
     border-radius: 12px;
     box-shadow: 0 4px 16px rgba(16, 35, 67, 0.08);
 }
 
 .resource-search h2 {
     margin-bottom: 10px;
-    color: #102343;
+    color: var(--navy);
 }
 
 .resource-search p {
@@ -215,7 +545,7 @@ footer {
     border: 1px solid #cbd5e1;
     border-radius: 8px;
     font: inherit;
-    background-color: #ffffff;
+    background-color: var(--white);
 }
 
 .resource-search input:focus,
@@ -224,12 +554,172 @@ footer {
     outline-offset: 2px;
 }
 
-@media (max-width: 600px) {
-    .resource-search {
-        margin: 16px 10px !important;
-        padding: 16px !important;
+/* =========================================
+   TABLET AND MOBILE RESPONSIVENESS
+========================================= */
+
+@media (max-width: 900px) {
+    .resource-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
+    section.hero {
+        gap: 25px;
+        padding: 50px 5%;
+    }
+
+    .student-life-section {
+        gap: 30px;
+    }
 }
 
+@media (max-width: 600px) {
 
+    header {
+        min-height: 70px;
+        padding: 10px 4%;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    header a img {
+        max-width: 120px;
+        height: auto;
+    }
+
+    header nav {
+        gap: 3px;
+        flex-wrap: wrap;
+    }
+
+    header nav a {
+        font-size: 0.8rem;
+        padding: 7px;
+    }
+
+    section.hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding: 45px 20px;
+        gap: 30px;
+    }
+
+    section.hero h1 {
+        font-size: clamp(2.25rem, 8vw, 3rem);
+    }
+
+    section.hero p {
+        font-size: 1rem;
+    }
+
+    .hero-image {
+        height: 240px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .hero-buttons a {
+        text-align: center;
+    }
+
+    .welcome-section,
+    .resources-section,
+    .involved-section {
+        padding: 50px 20px;
+    }
+
+    .resource-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .student-life-section {
+        grid-template-columns: 1fr;
+        padding: 50px 20px;
+        gap: 30px;
+    }
+
+    .student-life-image {
+        height: 250px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .resource-search {
+        margin: 16px 10px;
+        padding: 16px;
+    }
+
+    section ul {
+        grid-template-columns: 1fr;
+    }
+}
+/* =========================================
+   HOMEPAGE POLISH AND VISUAL EFFECTS
+========================================= */
+
+/* Smooth image hover effects */
+.hero-image img,
+.student-life-image img {
+    transition: transform 0.5s ease;
+}
+
+.hero-image:hover img,
+.student-life-image:hover img {
+    transform: scale(1.04);
+}
+
+/* More interactive resource cards */
+.feature-card {
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease,
+                border-color 0.3s ease;
+}
+
+.feature-card:hover {
+    border-color: var(--light-blue);
+    transform: translateY(-8px);
+}
+
+/* Add a little personality to the icons */
+.card-icon {
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover .card-icon {
+    transform: scale(1.12) rotate(-4deg);
+}
+
+/* Make buttons feel more polished */
+.primary-button,
+.secondary-button,
+.all-resources a {
+    transition: all 0.25s ease;
+}
+
+/* Improve section spacing */
+.welcome-section {
+    padding-top: 90px;
+    padding-bottom: 90px;
+}
+
+/* Make keyboard navigation easier */
+a:focus-visible {
+    outline: 3px solid var(--light-blue);
+    outline-offset: 4px;
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
