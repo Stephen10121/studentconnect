@@ -5,6 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Connect | Your Student Support Hub</title>
     <link rel="stylesheet" href="/public/style.css">
+
+    <style>
+        /* Homepage hero image: keep it small */
+        .hero .hero-image {
+            width: 100%;
+            max-width: 240px;
+            height: 155px;
+            justify-self: end;
+            overflow: hidden;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .hero .hero-image {
+                max-width: 200px;
+                height: 130px;
+                justify-self: center;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -14,11 +42,11 @@
                  alt="Student Connect Penguin Logo">
         </a>
 
-    <nav>
-        <a href="/">Home</a>
-        <a href="/public/resources.html">Student Resources</a>
-        <a href="/public/get-involved.html">Get Involved</a>
-    </nav>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/public/resources.html">Student Resources</a>
+            <a href="/public/get-involved.html">Get Involved</a>
+        </nav>
     </header>
 
     <main>
@@ -42,7 +70,7 @@
                 <div class="hero-buttons">
                     <a class="primary-button"
                        href="/public/resources.html">
-                        Explore Resources →
+                        Explore Resources
                     </a>
 
                     <a class="secondary-button"
@@ -54,7 +82,7 @@
 
             <div class="hero-image">
                 <img
-                    src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1000&q=85"
+                    src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=85"
                     alt="College students celebrating together">
             </div>
         </section>
@@ -87,77 +115,71 @@
 
             <div class="resource-grid">
 
-                <a href="/public/resources.html"
-                   class="feature-card">
+                <a href="/public/resources.html" class="feature-card">
                     <div class="card-icon">📚</div>
                     <h3>Academic Support</h3>
                     <p>
                         Find tutoring, study assistance,
                         and tools to help you succeed in class.
                     </p>
-                    <span>Explore resources →</span>
+                    <span>Explore resources</span>
                 </a>
 
-                <a href="/public/resources.html"
-                   class="feature-card">
+                <a href="/public/resources.html" class="feature-card">
                     <div class="card-icon">💰</div>
                     <h3>Financial Resources</h3>
                     <p>
                         Explore financial aid, scholarships,
                         and resources for managing college costs.
                     </p>
-                    <span>Explore resources →</span>
+                    <span>Explore resources</span>
                 </a>
 
-                <a href="/public/resources.html"
-                   class="feature-card">
+                <a href="/public/resources.html" class="feature-card">
                     <div class="card-icon">💙</div>
-                    <h3>Mental Health & Wellness</h3>
+                    <h3>Mental Health &amp; Wellness</h3>
                     <p>
                         Find support for your mental health,
                         personal well-being, and overall health.
                     </p>
-                    <span>Explore resources →</span>
+                    <span>Explore resources</span>
                 </a>
 
-                <a href="/public/resources.html"
-                   class="feature-card">
+                <a href="/public/resources.html" class="feature-card">
                     <div class="card-icon">💼</div>
                     <h3>Career Development</h3>
                     <p>
                         Explore career planning, employment
                         opportunities, and professional growth.
                     </p>
-                    <span>Explore resources →</span>
+                    <span>Explore resources</span>
                 </a>
 
-                <a href="/public/resources.html"
-                   class="feature-card">
+                <a href="/public/resources.html" class="feature-card">
                     <div class="card-icon">🏠</div>
                     <h3>Basic Needs</h3>
                     <p>
                         Discover food assistance, housing
                         resources, and other essential support.
                     </p>
-                    <span>Explore resources →</span>
+                    <span>Explore resources</span>
                 </a>
 
-                <a href="/public/resources.html"
-                   class="feature-card">
+                <a href="/public/resources.html" class="feature-card">
                     <div class="card-icon">🤝</div>
                     <h3>Student Community</h3>
                     <p>
                         Connect with other students, discover
                         opportunities, and build friendships.
                     </p>
-                    <span>Explore resources →</span>
+                    <span>Explore resources</span>
                 </a>
 
             </div>
 
             <div class="all-resources">
                 <a href="/public/resources.html">
-                    View All Student Resources →
+                    View All Student Resources
                 </a>
             </div>
         </section>
@@ -166,7 +188,7 @@
         <section class="student-life-section">
             <div class="student-life-image">
                 <img
-                    src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=1000&q=85"
+                    src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=600&q=85"
                     alt="Students working together on campus">
             </div>
 
@@ -184,7 +206,7 @@
                 </p>
 
                 <a href="https://www.clark.edu/campus-life/">
-                    Discover Campus Life →
+                    Discover Campus Life
                 </a>
             </div>
         </section>
@@ -202,7 +224,7 @@
 
             <a href="https://www.clark.edu/"
                class="primary-button">
-                Explore Clark College →
+                Explore Clark College
             </a>
         </section>
 
@@ -236,9 +258,8 @@
                 <h4>Quick Links</h4>
                 <a href="/">Home</a>
                 <a href="/public/resources.html">Student Resources</a>
-                <a href="https://www.clark.edu/">
-                    Clark College
-                </a>
+                <a href="/public/get-involved.html">Get Involved</a>
+                <a href="https://www.clark.edu/">Clark College</a>
             </div>
         </div>
 
